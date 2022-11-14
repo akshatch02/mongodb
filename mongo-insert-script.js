@@ -1,2 +1,2 @@
 use test
-db.mycollection.insert({"name":"Akshat Chawla"})
+db.mycollection.insert({"name":"Akshat2 Chawla"})
