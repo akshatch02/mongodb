@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  properties([parameters([choice(choices: ['Insert\nUpdate'], description: 'Choose the operation:', name: 'operation')])])
   stages {
     stage('version') {
       steps {
