@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['Insert\nUpdate'], description: 'Choose the operation:', name: 'operation')])])
+properties([parameters([choice(choices: ['Insert', 'Update'], description: 'Choose the operation:', name: 'operation')])])
 pipeline {
   agent any
   stages {
@@ -9,6 +9,7 @@ pipeline {
     }
     stage('hello') {
       steps {
+      echo "heyyyyyyyy ${params.operation}"
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
