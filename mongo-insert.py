@@ -1,9 +1,10 @@
 import pymongo
+import json
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["test"]
 mycol = mydb["mycollection"]
 
-mydict = { "name": "John", "address": "Highway 37" }
-
+with open('mongo-insert-script.json') as f:
+   mydict = json.load(f)
 x = mycol.insert_one(mydict)
