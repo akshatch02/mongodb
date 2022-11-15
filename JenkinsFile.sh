@@ -13,7 +13,6 @@ pipeline {
         sh 'pip3 install -r requirements.txt'
         sh 'python3 mongo-insert.py'
         sh 'rm -rf venv'
-        sh 'deactivate'
       }
     }
   }
