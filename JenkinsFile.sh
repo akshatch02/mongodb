@@ -2,7 +2,7 @@ properties([parameters([choice(choices: ['insert', 'update'], description: 'Choo
 pipeline {
   agent any
   environment {
-    DEV_USER = credentials("${params.environment}_USER")
+    DB_USER = credentials("${params.environment}_USER")
     OPERATION="${params.operation}"
     ENVIRONMENT="${params.environment}"
   }
@@ -17,7 +17,7 @@ pipeline {
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
-        sh "python3 mongo-${OPERATION}.py ${ENVIRONMENT} ${DEV_USER_USR}"
+        sh "python3 mongo-${OPERATION}.py ${ENVIRONMENT} ${DB_USER_USR} ${DB_USER_PSW}"
         sh 'rm -rf venv'
       }
     }
