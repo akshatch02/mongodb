@@ -13,8 +13,8 @@ pipeline {
     }
     stage('hello') {
       steps {
-      echo 'heyyyyyyyy $OPERATION'
-      echo 'helloooo $DEV_USER_USR'
+      echo 'heyyyyyyyy' $OPERATION
+        sh '$DEV_USER_USR'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
