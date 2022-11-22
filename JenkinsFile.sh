@@ -1,5 +1,4 @@
-properties([parameters([choice(choices: ['insert', 'update'], description: 'Choose the operation:', name: 'operation')])])
-properties([parameters([choice(choices: ['DEV', 'PROD'], description: 'Choose the environment:', name: 'environment')])])
+properties([parameters([choice(choices: ['insert', 'update'], description: 'Choose the operation:', name: 'operation')]),parameters([choice(choices: ['DEV', 'PROD'], description: 'Choose the environment:', name: 'environment')])])
 pipeline {
   agent any
   environment {
