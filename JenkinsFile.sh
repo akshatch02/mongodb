@@ -1,9 +1,6 @@
 properties([parameters([choice(choices: ['insert', 'update'], description: 'Choose the operation:', name: 'operation')])])
 pipeline {
   agent any
-  enviroment {
-    DEV_USER = credentials('DEV_USER')
-  }
   stages {
     stage('version') {
       steps {
