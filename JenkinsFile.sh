@@ -3,7 +3,6 @@ pipeline {
   agent any
   environment {
     DEV_USER = credentials('DEV_USER')
-    OPERATION = "${params.operation}"
   }
   stages {
     stage('version') {
@@ -12,6 +11,9 @@ pipeline {
       }
     }
     stage('hello') {
+      environment {
+        OPERATION = "${params.operation}"
+      }
       steps {
       echo 'heyyyy'
         sh 'python3 -m venv venv'
