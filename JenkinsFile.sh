@@ -13,7 +13,7 @@ pipeline {
     }
     stage('hello') {
       steps {
-      echo 'heyyyyyyyy' $OPERATION
+      echo '$OPERATION'
         sh '$DEV_USER_USR'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
