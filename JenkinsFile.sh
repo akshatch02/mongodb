@@ -3,6 +3,7 @@ pipeline {
   agent any
   environment {
     DEV_USER = credentials('DEV_USER')
+    OPERATION = "${params.operation}"
   }
   stages {
     stage('version') {
@@ -12,9 +13,8 @@ pipeline {
     }
     stage('hello') {
       steps {
-      echo "heyyyyyyyy ${params.operation}"
+      echo 'heyyyyyyyy $OPERATION'
       echo 'helloooo $DEV_USER_USR'
-      def OPERATION = "${params.operation}"
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
