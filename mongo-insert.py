@@ -13,8 +13,8 @@ print ("Port****** : ", configur.getint(my_list[1],'port'))
 server_val = configur.get(my_list[1],'server')
 port_val = configur.getint(my_list[1],'port')
 myclient = pymongo.MongoClient(f"mongodb://{server_val}:{port_val}/")
-mydb = myclient["test"]
-mycol = mydb["mycollection"]
+mydb = myclient[configur.get(my_list[1],'db')]
+mycol = mydb[configur.get(my_list[1],'collection')]
 
 with open('mongo-insert-script.json') as f:
    mydict = json.load(f)
