@@ -10,7 +10,9 @@ configur = ConfigParser()
 configur.read('config.ini')
 print ("Server****** : ", configur.get(my_list[1],'server'))
 print ("Port****** : ", configur.getint(my_list[1],'port'))
-myclient = pymongo.MongoClient("mongodb://configur.get(my_list[1],'server'):configur.getint(my_list[1],'port')/")
+server_val = configur.get(my_list[1],'server')
+port_val = configur.get(my_list[1],'port')
+myclient = pymongo.MongoClient("mongodb://server_val:port_val/")
 mydb = myclient["test"]
 mycol = mydb["mycollection"]
 
