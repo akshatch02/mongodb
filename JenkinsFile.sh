@@ -1,6 +1,9 @@
 properties([parameters([choice(choices: ['insert', 'update'], description: 'Choose the operation:', name: 'operation')])])
 pipeline {
   agent any
+  enviroment {
+    DEV_USER = credentials('DEV_USER')
+  }
   stages {
     stage('version') {
       steps {
@@ -13,7 +16,7 @@ pipeline {
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
-        sh "python3 mongo-${params.operation}.py"
+        sh 'python3 mongo-${params.operation}.py'
         sh 'rm -rf venv'
       }
     }
