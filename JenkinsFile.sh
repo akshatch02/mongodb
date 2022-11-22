@@ -13,12 +13,11 @@ pipeline {
     }
     stage('hello') {
       steps {
-      echo '$OPERATION'
-        sh '$DEV_USER_USR'
+      echo 'heyyyy'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
-        sh 'python3 mongo-$OPERATION.py'
+        sh 'python3 mongo-$OPERATION .py $DEV_USER_USR'
         sh 'rm -rf venv'
       }
     }
