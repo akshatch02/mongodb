@@ -15,7 +15,7 @@ pipeline {
         OPERATION="${params.operation}.py"
       }
       steps {
-      echo 'heyyyy'
+      echo "heyyyy ${params.operation}"
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
