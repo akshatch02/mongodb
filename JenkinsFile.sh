@@ -3,7 +3,7 @@ pipeline {
   agent any
   environment {
     DEV_USER = credentials('DEV_USER')
-    OPERATION="${params.operation}.py"
+    OPERATION="${params.operation}"
   }
   stages {
     stage('version') {
