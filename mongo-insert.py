@@ -9,6 +9,7 @@ for ele in my_list:
 configur = ConfigParser()
 configur.read('config.ini')
 print ("Server****** : ", configur.get(my_list[1],'server'))
+print ("Port****** : ", configur.get(my_list[1],'port'))
 myclient = pymongo.MongoClient("mongodb://configur.get(my_list[1],'server'):configur.get(my_list[1],'port')/")
 mydb = myclient["test"]
 mycol = mydb["mycollection"]
