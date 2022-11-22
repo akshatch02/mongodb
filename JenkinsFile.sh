@@ -12,14 +12,14 @@ pipeline {
     }
     stage('hello') {
       environment {
-        OPERATION = "${params.operation}"
+        OPERATION="${params.operation}.py"
       }
       steps {
       echo 'heyyyy'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'pip3 install -r requirements.txt'
-        sh 'python3 mongo-$OPERATION.py $DEV_USER_USR'
+        sh 'python3 mongo-$OPERATION $DEV_USER_USR'
         sh 'rm -rf venv'
       }
     }
